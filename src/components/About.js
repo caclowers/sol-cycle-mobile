@@ -3,10 +3,7 @@ import { StyleSheet, Text, View, ScrollView, Image, ImageBackground } from 'reac
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { web, phonecall } from 'react-native-communications';
 
-import About from './src/components/About';
-
-
-class App extends React.Component {
+class About extends React.Component {
   
   static navigationOptions = {
     title: 'Home'
@@ -15,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.phone}>SOL-Cycle</Text>
+        <Text>Open up </Text>
       </ScrollView>
     );
   }
@@ -23,9 +20,8 @@ class App extends React.Component {
 
 const styles = StyleSheet.create({
   contentContainer: {
-    flex: 1,
-    color: '#FDCE38',
-    backgroundColor: '#090446',
+    flex: 0,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -38,21 +34,16 @@ const styles = StyleSheet.create({
     fontWeight: 'normal'
   },
   phone: {
-    fontSize: 56,
+    fontSize: 28,
     fontWeight: 'bold',
-    color: '#052F5F',
-    borderColor: '#FDCE38',
-    borderWidth: 2,
-    padding: 6
+    color: 'cornflowerblue',
+    padding: 6,
+    textDecorationLine: 'underline'
   }
 });
 
-//navigation stuff
-const Navigation = createStackNavigator({
-  home: App,
-  about: About
-})
 
 
 
-export default createAppContainer(Navigation);
+
+export default About;

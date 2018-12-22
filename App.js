@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, ImageBackground, ReactPropTypes } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { web, phonecall } from 'react-native-communications';
 
@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text style={styles.phone}>SOL-Cycle</Text>
+        <Text style={styles.title}>SOL-Cycle</Text>
       </ScrollView>
     );
   }
@@ -37,12 +37,16 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'normal'
   },
-  phone: {
+  title: {
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
     fontSize: 56,
     fontWeight: 'bold',
     color: '#052F5F',
-    borderColor: '#FDCE38',
-    borderWidth: 2,
+    textShadowColor: '#FDCE38',
+    textShadowOffset: ( {width: 2, height: -2} ),
+    textShadowRadius: 1,
     padding: 6
   }
 });

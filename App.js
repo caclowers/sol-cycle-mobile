@@ -4,7 +4,7 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { web, phonecall } from 'react-native-communications';
 
 import About from './src/components/About';
-
+import Button from './src/components/Button';
 
 class App extends React.Component {
   
@@ -16,6 +16,18 @@ class App extends React.Component {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <Text style={styles.title}>SOL-Cycle</Text>
+        
+        <Text style={styles.UVvalue}>
+          8
+        </Text>
+        <Text style={styles.timeDate}>
+          time and date
+        </Text>
+        <Text style={styles.location}>
+          Your City, State
+        </Text>
+        <Button 
+        title="go"/>
       </ScrollView>
     );
   }
@@ -29,16 +41,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  call: {
-    fontSize: 28,
-    fontWeight: 'normal'
+  UVvalue: {
+    flex: 0,
+    fontSize: 428,
+    fontWeight: 'normal',
+    color: '#052F5F',
   },
-  ready: {
-    fontSize: 18,
-    fontWeight: 'normal'
+  location: {
+    flex: 0,
+    fontSize: 48,
+    fontWeight: 'normal',
+    color: '#052F5F',
+  },
+  timeDate: {
+    flex: 0,
+    fontSize: 36,
+    fontWeight: 'normal',
+    color: '#052F5F',
   },
   title: {
-    flex: 1,
+    flex: 0,
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 56,

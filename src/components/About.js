@@ -1,10 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image, ImageBackground } from 'react-native';
+import { StyleSheet, Text, TextInput, View, ScrollView, Image, ImageBackground } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import { web, phonecall } from 'react-native-communications';
 
 class About extends React.Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = { text: 'Useless Placeholder' };
+  }
   static navigationOptions = {
     title: 'Home'
   }
@@ -12,7 +15,10 @@ class About extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
-        <Text>Open up </Text>
+        <TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        onChangeText={(text) => this.setState({text})}
+        value={this.state.text}
+      />
       </ScrollView>
     );
   }

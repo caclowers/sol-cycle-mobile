@@ -28,17 +28,18 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: 'cornflowerblue',
+    borderColor: '#052F5F',
     marginTop: 25,
-    width: 300,
+    width: "75%",
     padding: 20,
     borderRadius: 8
   },
   text: {
     textAlign: 'center',
-    color: 'cornflowerblue',
+    color: '#052F5F',
     fontWeight: 'normal',
-    fontSize: 20
+    fontSize: 20,
+    fontFamily: 'Trebuchet MS',
   }
 });
 

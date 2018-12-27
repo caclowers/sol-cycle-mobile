@@ -3,6 +3,7 @@ import { StatusBar, StyleSheet, Text, TextInput, View, ScrollView, Image, ImageB
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 
 import About from './src/components/About';
+import Where from './src/components/Location';
 import Button from './src/components/Button';
 
 class App extends React.Component {
@@ -20,7 +21,7 @@ class App extends React.Component {
   }
 
   onButtonPress = () => {
-    this.props.navigation.navigate('about');
+    this.props.navigation.navigate('where');
   }
   
   render() {
@@ -129,7 +130,8 @@ const styles = StyleSheet.create({
 //navigation stuff
 const Navigation = createStackNavigator({
   home: App,
-  about: About
+  about: About,
+  where: Where
 })
 
 

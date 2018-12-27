@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Platform, Text, View, StyleSheet } from 'react-native';
 import { Constants, Location, Permissions } from 'expo';
+import axios from 'axios';
 
 export default class App extends Component {
   state = {
@@ -39,7 +40,9 @@ export default class App extends Component {
     if (this.state.errorMessage) {
       text = this.state.errorMessage;
     } else if (this.state.location) {
-      text = JSON.stringify("'longitude, latitude'" + this.state.location.coords.longitude + "," + this.state.location.coords.latitude);
+      text = JSON.stringify("latitude, longitude --" + " " 
+      + this.state.location.coords.latitude.toFixed(3) + ", " 
+      + this.state.location.coords.longitude.toFixed(3));
     }
 
     return (

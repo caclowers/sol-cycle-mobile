@@ -1,7 +1,7 @@
 import React from 'react';
 import { StatusBar, StyleSheet, Text, TextInput, View, ScrollView, Image, ImageBackground, ReactPropTypes } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-
+import axios from 'axios';
 import About from './src/components/About';
 import Where from './src/components/Location';
 import Button from './src/components/Button';
@@ -24,6 +24,13 @@ class App extends React.Component {
     this.props.navigation.navigate('where');
   }
   
+  handleChangeFor = propertyName => (event) => {
+    this.setState({
+      ...this.state,
+      [propertyName]: event.target.value,
+    })
+  }
+
   render() {
     return (
     
@@ -40,11 +47,11 @@ class App extends React.Component {
         
         <Text 
           style={styles.UVvalue}>
-            8
+            4
         </Text>
         <Text 
           style={styles.location}>
-            Your City, State
+            {this.state.city}, State
         </Text>
         <Text 
           style={styles.timeDate}>
@@ -52,11 +59,15 @@ class App extends React.Component {
         </Text> 
         <TextInput 
           style={styles.textInput}
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.city}/>
+          onChangeText={this.handleChangeFor('city')}
+          // onChangeText={(text) => this.setState({
+          //   ...this.state,
+          //   this.state.city = {text}
+          // })}
+          value='City'/>
         <TextInput style={styles.textInput}
           onChangeText={(text) => this.setState({text})}
-          value={this.state.state}/>
+          value='State'/>
         <Button 
           title="Search"
           onPress={this.onButtonPress}/>
@@ -80,14 +91,17 @@ const styles = StyleSheet.create({
   UVvalue: {
     flex: -1,
     fontSize: 328,
-    borderColor: 'white',
+    borderColor: '#FDCE38',
     fontFamily: 'Trebuchet MS',
     borderWidth: 2,
-    fontWeight: '900',
-    color: '#052F5F', 
+    borderRadius: 12,
+    fontWeight: 'normal',
+    width: '85%',
+    color: '#052F5F',
+    textAlign: 'center', 
     textShadowColor: '#FDCE38',
     textShadowOffset: ( {width: 2 , height: 2} ),
-    textShadowRadius: 1
+    textShadowRadius: 0
   },
   location: {
     flex: 0,
@@ -95,6 +109,9 @@ const styles = StyleSheet.create({
     fontWeight: 'normal',
     fontFamily: 'Trebuchet MS',
     color: '#052F5F',
+    textShadowColor: '#FDCE38',
+    textShadowOffset: ( {width: 1, height: 1} ),
+    textShadowRadius: 0,
   },
   timeDate: {
     flex: 0,
@@ -103,6 +120,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Trebuchet MS',
     color: '#052F5F',
     marginBottom: 36,
+    textShadowColor: '#FDCE38',
+    textShadowOffset: ( {width: 1, height: 1} ),
+    textShadowRadius: 0,
   },
   title: {
     flex: 0,
@@ -114,16 +134,21 @@ const styles = StyleSheet.create({
     color: '#052F5F',
     textShadowColor: '#FDCE38',
     textShadowOffset: ( {width: 2, height: 2} ),
-    textShadowRadius: 1,
+    textShadowRadius: 0,
     padding: 6
   },
   textInput:{
     height: 60,
     fontSize: 24, 
-    width: '75%', 
-    color: 'white', 
+    width: '85%', 
+    color: '#FDCE38', 
     borderColor: '#052F5F', 
-    borderWidth: 6
+    borderWidth: 2,
+    borderRadius: 12,
+    marginTop: 6,
+    flex: 0,
+    textAlign: 'center',
+    justifyContent: 'center',
   }
 });
 

@@ -26,7 +26,7 @@ return (
 }
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: 'white',
+    backgroundColor: '#052F5F',
     borderWidth: 1,
     borderColor: '#052F5F',
     marginTop: 25,
@@ -36,9 +36,9 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    color: '#052F5F',
+    color: '#FDCE38',
     fontWeight: 'normal',
-    fontSize: 20,
+    fontSize: 24,
     fontFamily: 'Trebuchet MS',
   }
 });
